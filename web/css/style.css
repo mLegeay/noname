@@ -1,0 +1,16 @@
+body {
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+#mainNav{
+  margin-bottom: 2%;
+}
+
+.leftSide{
+   float: left;
+}
+
+.rightSide{
+  float: left;
+}

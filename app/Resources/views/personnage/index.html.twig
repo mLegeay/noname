@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Personnages list</h1>
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for personnage in personnages %}
+            <tr>
+                <td><a href="{{ path('personnage_show', { 'id': personnage.id }) }}">{{ personnage.name }}</a></td>
+                <td>{{ personnage.description }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('personnage_show', { 'id': personnage.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('personnage_edit', { 'id': personnage.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('personnage_new') }}">Create a new personnage</a>
+        </li>
+    </ul>
+{% endblock %}

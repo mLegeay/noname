@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class="content_entitie">
+  <h2>{{ anime.name }}</h2>
+  <hr>
+    <div class="infoEntite">
+      <div class="leftSide col-md-2">
+        <div class="imageEntite">
+          <img src="{{ vich_uploader_asset(anime, 'imageFile') }}">
+        </div>
+      </div>
+      <div class="rightSide col-md-8">
+        <h2>{{ anime.name }}</h2>
+        <hr>
+        <h3>Synopsis</h3>
+        <div class="descriptionEntity">
+          {{ anime.description }}
+        </div>
+        <br>
+        <h3>Personnages</h3>
+        <hr>
+        <div class="PersonnageEntity">
+          {% for personnage in anime.personnages %}
+            <a href="{{ path('personnage_show', { 'id': personnage.id }) }}"><img src="{{ vich_uploader_asset(personnage, 'imageFile') }}"></a>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
